@@ -2,11 +2,19 @@
 
 Configurable bot to help your server
 
+## Development
+
+### Enable variables from .env
+
+```bash
+export $(cat .env | xargs)
+```
+
 ## Abilities
 
-- [ ] Send command on startup
+- [x] Ability to receive commands from telegram and show help
 
-- [ ] Ability to receive commands from telegram and show help
+- [ ] Send command on startup
 
 - [ ] Ability to receive messages and execute arbitrary code
 
