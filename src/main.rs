@@ -1,5 +1,7 @@
 use teloxide::{prelude::*, utils::command::BotCommands};
 
+const BOT_VERSION: &str = env!("CARGO_PKG_VERSION");
+
 #[tokio::main]
 async fn main() {
     pretty_env_logger::init();
@@ -20,6 +22,8 @@ enum Command {
     Help,
     #[command(description = "ping-pong.")]
     Ping,
+    #[command(description = "display current bot version")]
+    Version,
 }
 
 async fn answer(bot: Bot, msg: Message, cmd: Command) -> ResponseResult<()> {
@@ -29,6 +33,10 @@ async fn answer(bot: Bot, msg: Message, cmd: Command) -> ResponseResult<()> {
                 .await?
         }
         Command::Ping => bot.send_message(msg.chat.id, "Pong").await?,
+        Command::Version => {
+            bot.send_message(msg.chat.id, format!("My current version is @{BOT_VERSION}"))
+                .await?
+        }
     };
 
     Ok(())
