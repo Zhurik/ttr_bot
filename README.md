@@ -10,6 +10,15 @@ Configurable bot to help your server
 export $(cat .env | xargs)
 ```
 
+## List of commands
+
+Copy this to [@botfather](https://telegram.me/BotFather) when editing list of commands:
+
+```text
+version - Command to display current bot version
+ping - Simple ping command
+```
+
 ## Abilities
 
 - [x] Ability to receive commands from telegram and show help

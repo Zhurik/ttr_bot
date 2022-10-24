@@ -34,7 +34,7 @@ async fn answer(bot: Bot, msg: Message, cmd: Command) -> ResponseResult<()> {
         }
         Command::Ping => bot.send_message(msg.chat.id, "Pong").await?,
         Command::Version => {
-            bot.send_message(msg.chat.id, format!("My current version is @{BOT_VERSION}"))
+            bot.send_message(msg.chat.id, format!("My current version is {BOT_VERSION}"))
                 .await?
         }
     };
