@@ -39,6 +39,7 @@ stateDiagram-v2
     state "Saves chat id" as Start
     state "Answers 'Pong'" as Pong
     state "Answers user data" as Me
+    state "Answers bot's current version" as Version
     state "Sends 'Good bye' to all known users" as Shutdown
 
     [*] --> Startup: On startup
@@ -52,6 +53,9 @@ stateDiagram-v2
 
     Idle --> Me: /me
     Me --> Idle
+
+    Idle --> Version: /version
+    Version --> Idle
 
     Idle --> Shutdown: Receives kill signal
     Shutdown --> [*]
